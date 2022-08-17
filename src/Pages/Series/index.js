@@ -11,6 +11,7 @@ export default class Movies extends React.Component {
     }
     componentDidMount() {
         this.addSeries()
+        document.title = "Séries"
     }
     addSeries = async () => {
         const response = await seriesAPI.get()
@@ -37,14 +38,15 @@ export default class Movies extends React.Component {
     }
     render() {
         const {seriesFilter} = this.state
+        const {handleFilter} = this
         return (
             <>
-                <input onChange={this.handleFilter} />
+                <input onChange={handleFilter} />
                 {seriesFilter.map((item) => (
-                    <>
+                    <div key={item.id}>
                         <h1>{item.name}</h1>
                         <img src={item.img} />
-                    </>
+                    </div>
                 ))}
             </>
         )

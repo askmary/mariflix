@@ -1,10 +1,10 @@
 import React from "react"
 import Axios from "axios"
-
+import* as S from "./style"
 
 //ARMAZENANDO MINHA API DE FORMA Q MEU CODIGO ENTENDA
 //AXIOS TA CRIANDO BASE URL
-const filmsAPI = Axios.create({
+const moviesAPI = Axios.create({
   baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=en-US&page=1`
 })
 export default class Movies extends React.Component {
@@ -15,16 +15,17 @@ export default class Movies extends React.Component {
   }
   componentDidMount() {
     this.addMovies()
+    document.title = "Filmes"
   }
   //FAZER REQUISIÇÃO A HORA Q EU QUISER, METODO ASYNC
   //CONST RESPOSTA É NOME PADRÃO, QUANDP PEÇO ALGO, EXEMPLO AGUA GARÇOM
   //EXEMPLO BOTÃO, DIDIMOUNT VAI DEIXAR NO ESTADO INICCIAL
   addMovies = async () => {
-    const response = await filmsAPI.get()
+    const response = await moviesAPI.get()
     const final = response.data.results.map((item) => {
       return {
         ...item,
-        img: `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
+        img: `https://image.tmdb.org/t/p/w500/${item.poster_path}`
       }
     })
     this.setState({
@@ -43,17 +44,21 @@ export default class Movies extends React.Component {
     })
   }
   render() {
-    const { moviesFilter } = this.state
+    const {moviesFilter} = this.state
+    const {handleFilter} = this
     return (
-      <>
-        <input onChange={this.handleFilter}/>
+      <S.Container>
+        <input onChange={handleFilter}/>
         {moviesFilter.map((item) => (
-          <>
+          <S.MovieBox key={item.id}>
+            <S.Poster src={item.img} />
+            <div>
             <h1>{item.title}</h1>
-            <img src={item.img} />
-          </>
+            <p>{item.overview}</p>
+            </div>
+          </S.MovieBox>
         ))}
-      </>
+      </S.Container>
     )
   }
 }

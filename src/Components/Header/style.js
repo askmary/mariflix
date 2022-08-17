@@ -2,7 +2,6 @@ import styled from "styled-components"
 import { Link } from "react-router-dom";
 
 export const Container = styled.header`
-  color:#FF0000;
   width:100%;
   height:10vh;
   display:flex;
@@ -34,14 +33,18 @@ export const List = styled.ul`
   justify-content:space-evenly;
 `
 export const ItemList = styled.li`
-  
+  cursor:pointer;
+  font-size:1.2rem;
+  text-transform:uppercase;
+  transition:1s;
+  &:hover {
+    color: #FFFAFA;
+    transform: scale(1.1);
+  }
 `
 export const Anchor = styled(Link)`
   text-decoration:none;
   color:#FF0000;
-  cursor:pointer;
-  font-size:1.2rem;
-  text-transform:uppercase;
   &:hover{
     color:#FFFAFA;
   }

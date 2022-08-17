@@ -1,6 +1,7 @@
 import React from "react"
 import {createGlobalStyle} from "styled-components"
 import Header from "./Components/Header"
+import Footer from "./Components/Footer"
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -8,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   padding:0;
   box-sizing:border-box;
   font-family: 'ABeeZee', sans-serif;
+  color:white;
 }
 body{
   background:black;
@@ -19,6 +21,7 @@ export default class App extends React.Component{
       <>
       <GlobalStyle/>
       <Header/>
+      <Footer/>
       </>
     )
   }

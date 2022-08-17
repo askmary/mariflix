@@ -1,6 +1,8 @@
 import React from "react"
 import Carousel from "nuka-carousel/lib/carousel"
 import Axios from "axios"
+import * as S from "./style"
+import Modal from "../../Components/Modal"
 
 const settings = {
     dots: true,
@@ -15,17 +17,17 @@ const settings = {
         nextButtonText: ">",
         prevButtonText: "<",
         pagingDotsStyle: {
-            fill: "blue",
             display:'none'
         },
         nextButtonStyle: {
             marginRight: '1vw',
-            color: 'white',
+            color:'#FF0000',
             border: 'none'
 
         },
         prevButtonStyle: {
-            color: 'white',
+            marginLeft: '1vw',
+            color:'#FF0000',
             border: 'none'
         }
     },
@@ -42,11 +44,13 @@ export default class App extends React.Component{
         movies: [],
         moviesFilter: [],
         series: [],
-        seriesFilter: []
+        seriesFilter: [],
+        stateModal: false
       }
       componentDidMount() {
         this.addMovies()
         this.addSeries()
+        document.title = "X-FILMES"
       }
 
       addMovies = async () => {
@@ -66,31 +70,41 @@ export default class App extends React.Component{
         const final = response.data.results.map((item) => {
             return {
                 ...item,
-                img: `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
+                img: `https://image.tmdb.org/t/p/w500/${item.poster_path}`
             }
         })
         this.setState({
             series: final, seriesFilter: final
         })
     }
+    handleModal = (id) =>{
+        const {stateModal} = this.state
+        this.setState({
+            stateModal: !stateModal
+        })
+      }
     render(){
-        const {movies, series} = this.state
+        const {movies, series, stateModal} = this.state
+        const {handleModal} = this
         return(
             <>
+            <S.Label><S.Span>|</S.Span> Filmes populares no momento:</S.Label>
             <Carousel {...settings}>
                 {movies.map((item) => (
-                    <div>
-                        <h2>{item.title}</h2>
-                        <img src={item.img}/>
-                    </div>
+                    <S.Box key={item.id}>
+                        <S.Title>{item.title}</S.Title>
+                        <S.Poster src={item.img}/>
+                    </S.Box>
                 ))}
             </Carousel>
+            <S.Label><S.Span>|</S.Span> Séries populares no momento:</S.Label>
             <Carousel {...settings}>
                 {series.map((item) => (
-                    <div>
-                        <h2>{item.name}</h2>
-                        <img src={item.img}/>
-                    </div>
+                    <S.Box key={item.id}>
+                        <S.Title>{item.name}</S.Title>
+                        <S.Poster onClick={() => {handleModal()}} src={item.img}/>
+                        {stateModal && <Modal/>}
+                    </S.Box>
                 ))}
             </Carousel>
             </>

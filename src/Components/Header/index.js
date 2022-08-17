@@ -1,6 +1,7 @@
 import React from "react"
 import * as S from "./style"
-import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+//LIB TODA
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "../../Pages/Home/index"
 import Movies from "../../Pages/Movies/index"
 import Series from "../../Pages/Series/index"
