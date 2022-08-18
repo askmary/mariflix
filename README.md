@@ -10,6 +10,6 @@
 - [x] Funções de filter
 - [x] Routes
 - [x] Carrossel
+- [x] Estilo
 - [ ] Modal
-- [ ] Estilo
 - [ ] @media
