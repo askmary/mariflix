@@ -18,7 +18,7 @@ export default class App extends React.Component {
                         </S.TitleBox>
                         <S.List>
                             <S.ItemList>
-                                <S.Anchor to="/">Início</S.Anchor>
+                                <S.Anchor to="/xfilmes">Início</S.Anchor>
                             </S.ItemList>
                             <S.ItemList>
                                 <S.Anchor to="/movies">Filmes</S.Anchor>
@@ -30,7 +30,7 @@ export default class App extends React.Component {
                     </S.NavBar>
                 </S.Container>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/xfilmes" element={<Home />} />
                     <Route path="/movies" element={<Movies />} />
                     <Route path="/series" element={<Series />} />
                 </Routes>
