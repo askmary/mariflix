@@ -1,11 +1,11 @@
 import React from "react"
 import Axios from "axios"
-import* as S from "./style"
+import * as S from "./style"
 
 //ARMAZENANDO MINHA API DE FORMA Q MEU CODIGO ENTENDA
 //AXIOS TA CRIANDO BASE URL
 const moviesAPI = Axios.create({
-  baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=en-US&page=1`
+  baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=pt-BR&page=1`
 })
 export default class Movies extends React.Component {
   //SE QUERO RENDERIZAR E TAL, PRECISO GUARDAR NO ESTADO PORQUE É UMA COLEÇÃO DE ARRAY, PQ O ESTADO EU CONSIGO MANIPULAR
@@ -44,20 +44,29 @@ export default class Movies extends React.Component {
     })
   }
   render() {
-    const {moviesFilter} = this.state
-    const {handleFilter} = this
+    const { moviesFilter } = this.state
+    const { handleFilter } = this
     return (
       <S.Container>
-        <input onChange={handleFilter}/>
-        {moviesFilter.map((item) => (
-          <S.MovieBox key={item.id}>
-            <S.Poster src={item.img} />
-            <div>
-            <h1>{item.title}</h1>
-            <p>{item.overview}</p>
-            </div>
-          </S.MovieBox>
-        ))}
+        <S.FilterBox>
+          <S.Label><S.Span>|</S.Span>Busque pelo seu filme aqui:</S.Label>
+          <S.Search placeholder="Digite o seu filme..." onChange={handleFilter} type="text" />
+        </S.FilterBox>
+        <S.Box>
+          {moviesFilter.map((item) => (
+            <S.MovieBox key={item.id}>
+              <S.Poster src={item.img} alt={`Poster do filme ${item.title}`} title={`Poster do filme ${item.title}`}/>
+              <div>
+                <S.Title><S.Span>|</S.Span>{item.title}</S.Title>
+                <S.Overview>{item.overview}</S.Overview>
+                <S.InfoBox>
+                  <S.Info>Data de lançamento: <S.InfoSpan>{item.release_date}</S.InfoSpan></S.Info>
+                  <S.Info>Nota: <S.InfoSpan>{item.vote_average}</S.InfoSpan></S.Info>
+                </S.InfoBox>
+              </div>
+            </S.MovieBox>
+          ))}
+        </S.Box>
       </S.Container>
     )
   }

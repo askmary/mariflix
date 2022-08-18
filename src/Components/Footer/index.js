@@ -13,17 +13,17 @@ export default class App extends React.Component {
                 <S.Nav>
                     <S.Figure>
                         <a href="https://github.com/askmary" target="_blank">
-                            <S.Image src={GitHub} />
+                            <S.Image src={GitHub} alt="ícone GitHub"/>
                         </a>
                     </S.Figure>
                     <S.Figure>
                         <a href="https://www.instagram.com/askmary_/" target="_blank">
-                            <S.Image src={Instagram} />
+                            <S.Image src={Instagram} alt="ícone Instagram"/>
                         </a>
                     </S.Figure>
                     <S.Figure>
                         <a href="https://www.linkedin.com/in/mariana-melo-79a509218" target="_blank">
-                            <S.Image src={LinkedIn} />
+                            <S.Image src={LinkedIn} alt="ícone LinkedIn"/>
                         </a>
                     </S.Figure>
                 </S.Nav>

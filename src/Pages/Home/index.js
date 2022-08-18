@@ -6,10 +6,13 @@ import Modal from "../../Components/Modal"
 
 const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
+    autoplay:true,
+    autoplayInterval: 2000,
+    wrapAround: true,
     speed: 600,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     dragThreshold: 4,
     enableKeyboardControls:true,
     slideWidth:'90%',
@@ -77,12 +80,13 @@ export default class App extends React.Component{
             series: final, seriesFilter: final
         })
     }
-    handleModal = (id) =>{
+    handleModal = () => {
         const {stateModal} = this.state
         this.setState({
             stateModal: !stateModal
         })
-      }
+    }
+    
     render(){
         const {movies, series, stateModal} = this.state
         const {handleModal} = this
@@ -93,7 +97,7 @@ export default class App extends React.Component{
                 {movies.map((item) => (
                     <S.Box key={item.id}>
                         <S.Title>{item.title}</S.Title>
-                        <S.Poster src={item.img}/>
+                        <S.Poster src={item.img} alt={`Poster do filme ${item.title}`} title={`Poster do filme ${item.title}`}/>
                     </S.Box>
                 ))}
             </Carousel>
@@ -102,7 +106,7 @@ export default class App extends React.Component{
                 {series.map((item) => (
                     <S.Box key={item.id}>
                         <S.Title>{item.name}</S.Title>
-                        <S.Poster onClick={() => {handleModal()}} src={item.img}/>
+                        <S.Poster onClick={() => {handleModal(item.id)}} src={item.img} alt={`Poster do filme ${item.name}`} title={`Poster do filme ${item.name}`}/>
                         {stateModal && <Modal/>}
                     </S.Box>
                 ))}

@@ -14,6 +14,17 @@ const GlobalStyle = createGlobalStyle`
 body{
   background:black;
 }
+::-webkit-scrollbar{
+  width:5px;
+}
+::-webkit-scrollbar-track{
+  background:#1C1C1C;
+}
+::-webkit-scrollbar-thumb{
+  width:2px;
+  background:#FF0000;
+  border-radius: 30px;
+}
 `
 export default class App extends React.Component{
   render(){

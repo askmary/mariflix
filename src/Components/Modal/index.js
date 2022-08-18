@@ -6,7 +6,7 @@ width:40vw;
   background:pink;
   height:30vh;
   position:absolute;
-  
+  border:2px green solid;
 
 `
 export default class App extends React.Component{
