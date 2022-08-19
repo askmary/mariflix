@@ -1,7 +1,9 @@
-import React from "react"
-import {createGlobalStyle} from "styled-components"
-import Header from "./Components/Header"
-import Footer from "./Components/Footer"
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import { BrowserRouter as Router } from "react-router-dom";
+import Rota from "./Components/Routes";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -25,15 +27,16 @@ body{
   background:#FF0000;
   border-radius: 30px;
 }
-`
-export default class App extends React.Component{
-  render(){
-    return(
-      <>
-      <GlobalStyle/>
-      <Header/>
-      <Footer/>
-      </>
-    )
+`;
+export default class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <GlobalStyle />
+        <Header />
+        <Rota />
+        <Footer />
+      </Router>
+    );
   }
 }

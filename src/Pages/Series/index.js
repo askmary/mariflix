@@ -16,11 +16,13 @@ export default class Movies extends React.Component {
     }
     addSeries = async () => {
         const response = await seriesAPI.get()
+        console.log(response)
         const final = response.data.results.map((item) => {
             return {
                 ...item,
                 img: `https://image.tmdb.org/t/p/w500/${item.poster_path}`
             }
+
         })
         this.setState({
             series: final, seriesFilter: final
@@ -43,7 +45,7 @@ export default class Movies extends React.Component {
         return (
             <S.Container>
         <S.FilterBox>
-          <S.Label><S.Span>|</S.Span>Busque pelo seu filme aqui:</S.Label>
+          <S.Label><S.Span>|</S.Span>Busque pela sua série aqui:</S.Label>
           <S.Search placeholder="Digite o seu filme..." onChange={handleFilter} type="text" />
         </S.FilterBox>
         <S.Box>
