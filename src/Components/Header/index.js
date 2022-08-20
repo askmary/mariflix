@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import Modal from "../Menu-Modal";
-import MenuImage from "./img/menu.png";
+import Hamburger from "hamburger-react";
 
 export default class Header extends React.Component {
   state = {
@@ -19,18 +19,18 @@ export default class Header extends React.Component {
     return (
       <S.Container>
         <S.NavBar>
-          <S.TitleBox>
-            <S.Title>x-filmes</S.Title>
-          </S.TitleBox>
-          <S.List>
-            <S.Button
-              onClick={() => {
-                handleModal();
-              }}
-            >
-              <img src={MenuImage} alt="menu" />
-            </S.Button>
+          <S.Title>
+            <S.StyledLink to="/xfilmes">x-filmes</S.StyledLink>
+          </S.Title>
+          <S.Menu>
+              <Hamburger
+                onToggle={() => {
+                  handleModal();
+                }}
+              />
+            </S.Menu>
             {stateModal && <Modal />}
+          <S.List>
             <S.ItemList>
               <S.Anchor to="/xfilmes">Início</S.Anchor>
             </S.ItemList>

@@ -80,7 +80,7 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { movies, series, stateModal } = this.state;
+    const { movies, series} = this.state;
     return (
       <>
         <S.Label>

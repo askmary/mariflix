@@ -3,27 +3,43 @@ import {Link} from "react-router-dom"
 
 export const SubContainer = styled.div`
   width: 40vw;
-  background: pink;
-  height: 30vh;
+  height:100%;
   position:absolute;
-  border: 2px green solid;
-  z-index:1;
+  z-index:2;
+  right:0;
+  top:0vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    @media (max-width:400px){
+    width:100%;
+  }
 `;
 export const List = styled.ul`
-  width:40%;
+  width:90%;
+  height:30vh;
   list-style:none;
-  display:flex;
-  justify-content:space-evenly;
-  flex-direction:column;
+  @media (max-width:560px){
+    margin-top:10vh;
+  }
 `
 export const ItemList = styled.li`
   font-size:1.2rem;
   text-transform:uppercase;
   transition:1s;
+  padding:40px;
+  @media (max-width:400px){
+  
+  }
 `
 export const Anchor = styled(Link)`
   text-decoration:none;
+  padding-bottom:6px;
   color:#FF0000;
+  border-bottom: 2px solid;
   &:hover{
     color:#FFFAFA;
   }
