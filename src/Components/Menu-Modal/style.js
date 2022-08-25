@@ -18,7 +18,7 @@ export const SubContainer = styled.div`
     width:100%;
   }
 `;
-export const List = styled.ul`
+export const ListModal = styled.ul`
   width:90%;
   height:30vh;
   list-style:none;
@@ -26,7 +26,7 @@ export const List = styled.ul`
     margin-top:10vh;
   }
 `
-export const ItemList = styled.li`
+export const ItemListModal = styled.li`
   font-size:1.2rem;
   text-transform:uppercase;
   transition:1s;
@@ -35,7 +35,7 @@ export const ItemList = styled.li`
   
   }
 `
-export const Anchor = styled(Link)`
+export const AnchorModal = styled(Link)`
   text-decoration:none;
   padding-bottom:6px;
   color:#FF0000;

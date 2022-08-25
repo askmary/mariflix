@@ -1,6 +1,5 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import { BrowserRouter as Router } from "react-router-dom";
 import Rota from "./Components/Routes";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -28,15 +27,13 @@ body{
   border-radius: 30px;
 }
 `;
-export default class App extends React.Component {
-  render() {
-    return (
-      <Router>
-        <GlobalStyle />
-        <Header />
-        <Rota />
-        <Footer />
-      </Router>
-    );
-  }
+export default function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+      <Rota />
+      <Footer />
+    </>
+  );
 }

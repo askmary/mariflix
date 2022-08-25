@@ -5,17 +5,17 @@ export default class Modal extends React.Component {
   render() {
     return (
       <S.SubContainer>
-        <S.List>
-          <S.ItemList>
-            <S.Anchor to="/xfilmes">Início</S.Anchor>
-          </S.ItemList>
-          <S.ItemList>
-            <S.Anchor to="/filmes">Filmes</S.Anchor>
-          </S.ItemList>
-          <S.ItemList>
-            <S.Anchor to="/series">Séries</S.Anchor>
-          </S.ItemList>
-        </S.List>
+        <S.ListModal>
+          <S.ItemListModal>
+            <S.AnchorModal to="/xfilmes">Início</S.AnchorModal>
+          </S.ItemListModal>
+          <S.ItemListModal>
+            <S.AnchorModal to="/filmes">Filmes</S.AnchorModal>
+          </S.ItemListModal>
+          <S.ItemListModal>
+            <S.AnchorModal to="/series">Séries</S.AnchorModal>
+          </S.ItemListModal>
+        </S.ListModal>
       </S.SubContainer>
     );
   }

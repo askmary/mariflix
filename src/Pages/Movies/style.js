@@ -22,7 +22,7 @@ export const Label = styled.h1`
 export const Search = styled.input`
   background: transparent;
   outline: none;
-  border:none;
+  border: none;
   border-bottom: 2px solid #1c1c1c;
   width: 30%;
   height: 3.5vh;
@@ -32,8 +32,8 @@ export const Search = styled.input`
   background-position-x: 8px;
   font-size: 0.8rem;
   padding: 1vh 0 1vh 2.2vw;
-  background-size:15px;
-  :focus{
+  background-size: 15px;
+  :focus {
     border-bottom: 2px solid #ff0000;
   }
 `;

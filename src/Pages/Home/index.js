@@ -1,7 +1,6 @@
-import React from "react";
-import Carousel from "nuka-carousel/lib/carousel";
-import Axios from "axios";
-import * as S from "./style";
+import React, { useState, useEffect } from 'react';
+import Carousel from 'nuka-carousel/lib/carousel';
+import * as S from './style';
 
 const settings = {
   dots: true,
@@ -33,87 +32,66 @@ const settings = {
     },
   },
 };
-const filmsAPI = Axios.create({
-  baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=en-US&page=1`,
-});
-const seriesAPI = Axios.create({
-  baseURL: `https://api.themoviedb.org/3/tv/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=en-US&page=1`,
-});
-export default class App extends React.Component {
-  state = {
-    movies: [],
-    moviesFilter: [],
-    series: [],
-    seriesFilter: []
-  };
-  componentDidMount() {
-    this.addMovies();
-    this.addSeries();
-    document.title = "X-FILMES";
-  }
+const image_path = "https://image.tmdb.org/t/p/w500/";
 
-  addMovies = async () => {
-    const response = await filmsAPI.get();
-    const final = response.data.results.map((item) => {
-      return {
-        ...item,
-        img: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
-      };
-    });
-    this.setState({
-      movies: final,
-      moviesFilter: final,
-    });
-  };
-  addSeries = async () => {
-    const response = await seriesAPI.get();
-    const final = response.data.results.map((item) => {
-      return {
-        ...item,
-        img: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
-      };
-    });
-    this.setState({
-      series: final,
-      seriesFilter: final,
-    });
-  };
+export default function Home() {
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=en-US`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovies(data.results);
+      });
+  }, []);
 
-  render() {
-    const { movies, series} = this.state;
-    return (
-      <>
-        <S.Label>
-          <S.Span>|</S.Span> Filmes populares no momento:
-        </S.Label>
-        <Carousel {...settings}>
-          {movies.map((item) => (
-            <S.Box key={item.id}>
-              <S.Title>{item.title}</S.Title>
+  const [series, setSeries] = useState([]);
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/tv/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=pt-BR&page=1`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setSeries(data.results);
+      });
+  }, []);
+  return (
+    <div>
+      <S.Label>
+        <S.Span>|</S.Span> Filmes populares no momento:
+      </S.Label>
+      <Carousel {...settings}>
+        {movies.map((item) => (
+          <S.Box key={item.id}>
+            <S.Title>{item.title}</S.Title>
+            <S.Anchor to={`/details-filmes/${item.id}`}>
               <S.Poster
-                src={item.img}
-                alt={`Poster do filme ${item.title}`}
-                title={`Poster do filme ${item.title}`}
+                src={`${image_path}${item.poster_path}`}
+                alt={`Poster da série ${item.title}`}
+                title={`Poster da série ${item.title}`}
               />
-            </S.Box>
-          ))}
-        </Carousel>
-        <S.Label>
-          <S.Span>|</S.Span> Séries populares no momento:
-        </S.Label>
-        <Carousel {...settings}>
-          {series.map((item) => (
-            <S.Box key={item.id}>
-              <S.Title>{item.name}</S.Title>
+            </S.Anchor>
+          </S.Box>
+        ))}
+      </Carousel>
+      <S.Label>
+        <S.Span>|</S.Span> Séries populares no momento:
+      </S.Label>
+      <Carousel {...settings}>
+        {series.map((item) => (
+          <S.Box key={item.id}>
+            <S.Title>{item.name}</S.Title>
+            <S.Anchor to={`/details-series/${item.id}`}>
               <S.Poster
-                src={item.img}
-                alt={`Poster do filme ${item.name}`}
-                title={`Poster do filme ${item.name}`}
+                src={`${image_path}${item.poster_path}`}
+                alt={`Poster da série ${item.name}`}
+                title={`Poster da série ${item.name}`}
               />
-            </S.Box>
-          ))}
-        </Carousel>
-      </>
-    );
-  }
+            </S.Anchor>
+          </S.Box>
+        ))}
+      </Carousel>
+    </div>
+  );
 }

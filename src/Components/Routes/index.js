@@ -1,17 +1,19 @@
-import React from "react"
-import {Routes, Route} from "react-router-dom"
-import Home from "../../Pages/Home/index"
-import Movies from "../../Pages/Movies/index";
-import Series from "../../Pages/Series/index";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "../../Pages/Home";
+import Movies from "../../Pages/Movies";
+import Series from "../../Pages/Series";
+import MoviesDetails from "../../Pages/Details/MoviesDetails";
+import SeriesDetails from "../../Pages/Details/SeriesDetails"
 
-export default class App extends React.Component{
-    render(){
-        return(
-             <Routes>
-                <Route path="/xfilmes" element={<Home/>}/>
-                <Route path="/filmes" element={<Movies/>}/>
-                <Route path="/series" element={<Series/>}/>
-             </Routes>
-        )
-    }
+export default function Rotas() {
+  return (
+    <Routes>
+      <Route path="/xfilmes" element={<Home />} />
+      <Route path="/filmes" element={<Movies />} />
+      <Route path="/series" element={<Series />} />
+      <Route path="/details-filmes/:id" element={<MoviesDetails />} />
+      <Route path="/details-series/:id" element={<SeriesDetails/>}/>
+    </Routes>
+  );
 }
