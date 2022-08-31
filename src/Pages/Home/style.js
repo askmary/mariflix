@@ -30,7 +30,7 @@ export const Title = styled.h2`
   @media (max-width: 800px) {
     font-size: 0.9rem;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 650px) {
     display: none;
   }
 `;

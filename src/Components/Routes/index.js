@@ -9,7 +9,7 @@ import SeriesDetails from "../../Pages/Details/SeriesDetails"
 export default function Rotas() {
   return (
     <Routes>
-      <Route path="/xfilmes" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/filmes" element={<Movies />} />
       <Route path="/series" element={<Series />} />
       <Route path="/details-filmes/:id" element={<MoviesDetails />} />

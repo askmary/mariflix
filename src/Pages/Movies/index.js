@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
+import { Link } from "react-router-dom";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=en-US`
+      `https://api.themoviedb.org/3/movie/popular?api_key=b3c62dbbf7ef4ecdea1a16d5806b193a&language=pt-BR`
     )
       .then((response) => response.json())
       .then((data) => {

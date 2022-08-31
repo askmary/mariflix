@@ -9,7 +9,7 @@ export default function Header() {
     <S.Container>
       <S.NavBar>
         <S.Title>
-          <S.StyledLink to="/xfilmes">x-filmes</S.StyledLink>
+          <S.StyledLink to="/">Mary<S.Span>flix</S.Span></S.StyledLink>
         </S.Title>
         <S.Menu>
           <Hamburger toggled={isOpen} toggle={setOpen} />
@@ -17,7 +17,7 @@ export default function Header() {
         {isOpen ? <Modal /> : null}
         <S.List>
           <S.ItemList>
-            <S.Anchor to="/xfilmes">Início</S.Anchor>
+            <S.Anchor to="/">Início</S.Anchor>
           </S.ItemList>
           <S.ItemList>
             <S.Anchor to="/filmes">Filmes</S.Anchor>

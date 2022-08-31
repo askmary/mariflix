@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Carousel from 'nuka-carousel/lib/carousel';
-import * as S from './style';
+import React, { useState, useEffect } from "react";
+import Carousel from "nuka-carousel/lib/carousel";
+import * as S from "./style";
 
 const settings = {
   dots: true,

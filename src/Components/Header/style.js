@@ -24,6 +24,9 @@ export const Title = styled.h1`
   border-radius: 9px;
   padding: 0 10px 0 10px;
 `;
+export const Span = styled.span`
+  color:white;
+`;
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
