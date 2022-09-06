@@ -12,6 +12,7 @@ export default function Movies() {
       .then((data) => {
         setMovies(data.results);
       });
+    document.title = "Filmes";
   }, []);
 
   const [search, setSearch] = useState("");
@@ -33,33 +34,40 @@ export default function Movies() {
           type="text"
         />
       </S.FilterBox>
-      <S.Box>
-        {moviesFilter.map((item) => (
-          <S.MovieBox key={item.id}>
-            <S.Poster
-              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-              alt={`Poster do filme ${item.title}`}
-              title={`Poster do filme ${item.title}`}
-            />
-            <div>
-              <S.Title>
-                <S.Span>|</S.Span>
-                {item.title}
-              </S.Title>
-              <S.Overview>{item.overview}</S.Overview>
-              <S.InfoBox>
-                <S.Info>
-                  Data de lançamento:{" "}
-                  <S.InfoSpan>{item.release_date}</S.InfoSpan>
-                </S.Info>
-                <S.Info>
-                  Nota: <S.InfoSpan>{item.vote_average}</S.InfoSpan>
-                </S.Info>
-              </S.InfoBox>
-            </div>
-          </S.MovieBox>
-        ))}
-      </S.Box>
+     {moviesFilter.length > 0 ? (
+       <S.Box>
+       {moviesFilter.map((item) => (
+         <S.MovieBox key={item.id}>
+           <S.Poster
+             src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+             alt={`Poster do filme ${item.title}`}
+             title={`Poster do filme ${item.title}`}
+           />
+           <div>
+             <S.Title>
+               <S.Span>|</S.Span>
+               {item.title}
+             </S.Title>
+             <S.Overview>{item.overview}</S.Overview>
+             <S.InfoBox>
+               <S.Info>
+                 Data de lançamento:{" "}
+                 <S.InfoSpan>{item.release_date}</S.InfoSpan>
+               </S.Info>
+               <S.Info>
+                 Nota: <S.InfoSpan>{item.vote_average}</S.InfoSpan>
+               </S.Info>
+             </S.InfoBox>
+           </div>
+         </S.MovieBox>
+       ))}
+     </S.Box>
+     ): (
+      <S.ElseBox>
+        <S.Text>Não encontramos nenhum filme com este nome!</S.Text>
+        <S.Text2>:(</S.Text2>
+      </S.ElseBox>
+     )}
     </S.Container>
   );
 }

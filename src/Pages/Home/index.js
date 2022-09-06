@@ -44,6 +44,7 @@ export default function Home() {
       .then((data) => {
         setMovies(data.results);
       });
+      document.title = 'MaryFlix'
   }, []);
 
   const [series, setSeries] = useState([]);

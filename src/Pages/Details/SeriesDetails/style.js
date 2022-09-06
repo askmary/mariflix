@@ -13,7 +13,7 @@ export const Background = styled.div`
   width: 100%;
   height: 60vh;
   background-size: 100vw 80vh;
-  background-position: right;
+  background-position:center;
   background-repeat: no-repeat;
   opacity: 0.5;
 `;
@@ -25,23 +25,23 @@ export const Box = styled.div`
   justify-content: center;
   text-align: right;
   position: relative;
-  section {
-    position: absolute;
-    left: 11.5vw;
-    top: 25vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 15vh;
-    button {
-      width: 12vw;
-      height: 6vh;
-      background-color: #ff0000;
-      font-size: 1rem;
-      border-radius: 15px;
-      cursor: pointer;
-    }
-  }
+`;
+export const ButtonBox = styled.div`
+  position: absolute;
+  left: 11.5vw;
+  top: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 15vh;
+`;
+export const Btn = styled.button`
+  width: 12vw;
+  height: 6vh;
+  background-color: #ff0000;
+  font-size: 1rem;
+  border-radius: 15px;
+  cursor: pointer;
 `;
 export const Title = styled.h2`
   font-size: 2rem;

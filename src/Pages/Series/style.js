@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Icon from "../Assets/lupa.png";
+import {Link} from "react-router-dom"
 
 export const Container = styled.section`
   width: 100%;
@@ -73,3 +74,22 @@ export const InfoSpan = styled.span`
   padding: 0.5vh 0.5vw;
   border-radius: 5px;
 `;
+export const ElseBox = styled.section`
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+`;
+export const Text = styled.h1`
+  font-size: 2rem;
+  padding-bottom:60px;
+`;
+export const Text2 = styled.h1`
+  font-size: 5rem;
+  color: #ff0000;
+`;
+export const Anchor = styled(Link)`
+background-color:pink;
+`

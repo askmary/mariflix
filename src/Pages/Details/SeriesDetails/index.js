@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import * as S from "./style"
+import { useParams } from "react-router-dom";
+import * as S from "./style";
 
 export default function DetailsSeries() {
   const { id } = useParams();
@@ -13,7 +13,15 @@ export default function DetailsSeries() {
     )
       .then((response) => response.json())
       .then((data) => {
-        const { name, poster_path, release_date, overview, vote_average, backdrop_path, first_air_date} = data;
+        const {
+          name,
+          poster_path,
+          release_date,
+          overview,
+          vote_average,
+          backdrop_path,
+          first_air_date,
+        } = data;
         const serie = {
           id,
           title: name,
@@ -24,6 +32,7 @@ export default function DetailsSeries() {
           vote: vote_average,
         };
         setSerie(serie);
+        document.title = `${serie.title}`;
       });
   }, [id]);
   const { title, image, overview, releaseDate, vote, image2 } = serie;
@@ -44,19 +53,17 @@ export default function DetailsSeries() {
         <S.About>
           Popularidade: <S.InfoSpan>{vote}</S.InfoSpan>
         </S.About>
-        <section>
-          <button>
-            <S.Anchor to="/">Voltar ao início</S.Anchor>
-          </button>
-          <button>
-            <S.A
-              href={`https://youtube.com/results?search_query=${title} Trailer`}
-              target="blank"
-            >
-              Trailer
-            </S.A>
-          </button>
-        </section>
+        <S.ButtonBox>
+          <S.Anchor to="/">
+            <S.Btn>Voltar ao início</S.Btn>
+          </S.Anchor>
+          <S.A
+            href={`https://youtube.com/results?search_query=${title} Trailer`}
+            target="blank"
+          >
+            <S.Btn>Trailer</S.Btn>
+          </S.A>
+        </S.ButtonBox>
       </S.Box>
     </S.Main>
   );

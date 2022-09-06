@@ -8,6 +8,9 @@ export const Box = styled.section`
   width: 100%;
   flex-wrap: wrap;
   display: flex;
+  @media (max-width: 1400px) {
+    justify-content: center;
+  }
 `;
 export const FilterBox = styled.div`
   display: flex;
@@ -67,9 +70,31 @@ export const InfoBox = styled.div`
 export const Info = styled.p`
   padding: 5px;
   color: #ff0000;
+  @media (max-width: 1290px) {
+    display: none;
+  }
 `;
 export const InfoSpan = styled.span`
   background-color: #363636;
   padding: 0.5vh 0.5vw;
   border-radius: 5px;
+  @media (max-width: 1290px) {
+    display: none;
+  }
+`;
+export const ElseBox = styled.section`
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+`;
+export const Text = styled.h1`
+  font-size: 2rem;
+  padding-bottom:60px;
+`;
+export const Text2 = styled.h1`
+  font-size: 5rem;
+  color: #ff0000;
 `;

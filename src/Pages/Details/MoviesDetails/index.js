@@ -31,6 +31,7 @@ export default function MoviesDetails() {
           vote: vote_average,
         };
         setMovie(movie);
+        document.title = `${movie.title}`;
       });
   }, [id]);
 
@@ -53,10 +54,15 @@ export default function MoviesDetails() {
           Popularidade: <S.InfoSpan>{vote}</S.InfoSpan>
         </S.About>
         <S.ButtonBox>
-          <S.Btn>
-            <S.Anchor to="/">Voltar ao início</S.Anchor>
-          </S.Btn>
-          <S.Btn><S.A href={`https://youtube.com/results?search_query=${title} Trailer`} target="blank">Trailer</S.A></S.Btn>
+          <S.Anchor to="/">
+            <S.Btn>Voltar ao início</S.Btn>
+          </S.Anchor>
+          <S.A
+            href={`https://youtube.com/results?search_query=${title} Trailer`}
+            target="blank"
+          >
+            <S.Btn>Trailer</S.Btn>
+          </S.A>
         </S.ButtonBox>
       </S.Box>
     </S.Main>

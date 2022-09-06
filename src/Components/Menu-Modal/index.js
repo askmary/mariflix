@@ -7,7 +7,7 @@ export default class Modal extends React.Component {
       <S.SubContainer>
         <S.ListModal>
           <S.ItemListModal>
-            <S.AnchorModal to="/xfilmes">Início</S.AnchorModal>
+            <S.AnchorModal to="/">Início</S.AnchorModal>
           </S.ItemListModal>
           <S.ItemListModal>
             <S.AnchorModal to="/filmes">Filmes</S.AnchorModal>

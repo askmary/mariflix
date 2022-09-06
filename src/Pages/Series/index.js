@@ -11,6 +11,7 @@ export default function Series() {
       .then((data) => {
         setSeries(data.results);
       });
+    document.title = "Séries";
   }, []);
 
   const [search, setSearch] = useState("");
@@ -32,33 +33,40 @@ export default function Series() {
           type="text"
         />
       </S.FilterBox>
-      <S.Box>
-        {seriesFilter.map((item) => (
-          <S.MovieBox key={item.id}>
-            <S.Poster
-              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-              alt={`Poster do filme ${item.name}`}
-              title={`Poster do filme ${item.name}`}
-            />
-            <div>
-              <S.Title>
-                <S.Span>|</S.Span>
-                {item.name}
-              </S.Title>
-              <S.Overview>{item.overview}</S.Overview>
-              <S.InfoBox>
-                <S.Info>
-                  Data de lançamento:{" "}
-                  <S.InfoSpan>{item.first_air_date}</S.InfoSpan>
-                </S.Info>
-                <S.Info>
-                  Nota: <S.InfoSpan>{item.vote_average}</S.InfoSpan>
-                </S.Info>
-              </S.InfoBox>
-            </div>
-          </S.MovieBox>
-        ))}
-      </S.Box>
+      {seriesFilter.length > 0 ? (
+        <S.Box>
+          {seriesFilter.map((item) => (
+            <S.MovieBox key={item.id}>
+              <S.Poster
+                src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                alt={`Poster do filme ${item.name}`}
+                title={`Poster do filme ${item.name}`}
+              />
+              <div>
+                <S.Title>
+                  <S.Span>|</S.Span>
+                  {item.name}
+                </S.Title>
+                <S.Overview>{item.overview}</S.Overview>
+                <S.InfoBox>
+                  <S.Info>
+                    Data de lançamento:{" "}
+                    <S.InfoSpan>{item.first_air_date}</S.InfoSpan>
+                  </S.Info>
+                  <S.Info>
+                    Nota: <S.InfoSpan>{item.vote_average}</S.InfoSpan>
+                  </S.Info>
+                </S.InfoBox>
+              </div>
+            </S.MovieBox>
+          ))}
+        </S.Box>
+      ) : (
+        <S.ElseBox>
+          <S.Text>Não encontramos nenhuma série com este nome!</S.Text>
+          <S.Text2>:(</S.Text2>
+        </S.ElseBox>
+      )}
     </S.Container>
   );
 }
