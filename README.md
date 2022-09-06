@@ -1,6 +1,9 @@
-### 😳 X-FILMES:
+### 😳 MARYFLIX:
 
-- Este projeto é uma versão atualizada, mais semântica, funcional e com um melhor design do meu primeiro x-filmes (que na verdade se chamava <a href="https://github.com/askmary/xfilmes.com">xfilmes.com</a>), que é um projeto a fim de treinar a manipulação de API´s com React/Class Component.
+- Este projeto é uma versão atualizada, mais semântica, funcional e com um melhor design do meu primeiro projeto com API, que inicialmente se chamava <a href="https://github.com/askmary/xfilmes.com">xfilmes.com</a>, esta webpage foi criada com o intuito de treinar a manipulação de API´s com React.js
+
+- Diferente da primeira versão deste projeto, o MaryFlix foi feito com Hooks. 
+
 
 #
 
@@ -11,5 +14,5 @@
 - [x] Routes
 - [x] Carrossel
 - [x] Estilo
-- [ ] Modal
-- [ ] @media
+- [x] Página de details
+- [ ] @media (em progresso...)
