@@ -38,7 +38,7 @@ export const Search = styled.input`
     border-bottom: 2px solid #ff0000;
   }
 `;
-export const MovieBox = styled.div`
+export const SerieBox = styled.div`
   background-color: #1c1c1c;
   width: 45%;
   height: 70vh;

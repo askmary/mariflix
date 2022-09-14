@@ -25,7 +25,7 @@ export default function Series() {
           <S.Span>|</S.Span>Busque pela sua série aqui:
         </S.Label>
         <S.Search
-          placeholder="Digite o seu filme..."
+          placeholder="Digite a sua série..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
@@ -36,11 +36,11 @@ export default function Series() {
       {seriesFilter.length > 0 ? (
         <S.Box>
           {seriesFilter.map((item) => (
-            <S.MovieBox key={item.id}>
+            <S.SerieBox key={item.id}>
               <S.Poster
                 src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                alt={`Poster do filme ${item.name}`}
-                title={`Poster do filme ${item.name}`}
+                alt={`Poster da série ${item.name}`}
+                title={`Poster da série ${item.name}`}
               />
               <div>
                 <S.Title>
@@ -58,7 +58,7 @@ export default function Series() {
                   </S.Info>
                 </S.InfoBox>
               </div>
-            </S.MovieBox>
+            </S.SerieBox>
           ))}
         </S.Box>
       ) : (

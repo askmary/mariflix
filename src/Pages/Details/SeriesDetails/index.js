@@ -16,7 +16,6 @@ export default function DetailsSeries() {
         const {
           name,
           poster_path,
-          release_date,
           overview,
           vote_average,
           backdrop_path,
